@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: aliceblue;
+}
+.container{
+    width:800px;
+    background: aliceblue;
+    border-radius: 7px;
+    padding:30px;
+}
+.wrapper{
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+.wrapper .text-input{
+    display:  flex;
+    border-bottom: 1px solid #bbb;
+}
+.text-input .to-text{
+    border-left:1px solid #bbb;
+    border-radius: 0;
+}
+.text-input textarea{
+    height: 250px;
+    width: 100%;
+    border:none;
+    outline:none;
+    resize: none;
+    font-size: 18px;
+    border-radius: 5px;
+    background: none;
+    padding: 10px 15px;
+}
+.controls, li, .icons, .icons i{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.controls{
+    padding: 12px 15px;
+    list-style: none;
+}
+.controls .row{
+    display: flex;
+    flex: 0 0 40% !important;
+}
+.controls .row.from .icons{
+    padding-right: 15px;
+    border-right: 1px solid #bbb;
+}
+.controls .row.to .icons{
+    padding-left: 15px;
+    border-left: 1px solid #bbb;
+}
+.controls .icons{
+    width: 28%;
+}
+.controls .icons i{
+    width: 50px;
+    color: #9f9f9f;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+}
+.controls .row select{
+    border:none;
+    outline: none;
+    font-size: 18px;
+    background: none;
+}
+.controls .exchange{
+    color:#9f9f9f;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.container button{
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color:#fff;
+    font-size: 17px;
+    border-radius: 5px;
+    background: blue;
+}
+button:hover{
+  background-color: aliceblue;
+  border: 1px solid blue;
+  color: blue;
+  transition: 0.5s;
+}
+@media only screen and (max-width:992px){
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+    }
+    .container{
+        width:75%;
+        border-radius: 7px;
+        padding:30px;
+    }
+    .text-input textarea{
+        height: 150px;
+        width: 100%;
+        border:none;
+        outline:none;
+        resize: none;
+        font-size: 18px;
+        border-radius: 5px;
+        background: none;
+        padding: 10px 15px;
+    }
+    .controls .row{
+        flex-direction: column;
+    }
+    .controls{
+        padding: 5px 7px;
+        list-style: none;
+    }
+    .controls .row .icons{
+        order: 2;
+        width: 100%;
+        border-top: 1px solid #bbb;
+        padding:  10px 0;
+    }
+    .controls .row select{
+        order:  1;
+        padding-bottom: 5px;
+        width: 100%;
+    }
+    .controls .row.from .icons{
+        margin-right: 1%;
+        padding-right: 1% !important;
+    }
+    .controls .row.to .icons{
+        margin-left: 2%;
+        padding-left: 1% !important;
+    }
+    ::placeholder{
+        font-size: medium;
+    }
+}
+
+
+@media only screen and (max-width:480px){
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+    }
+    .container{
+        width:90%;
+      
+        border-radius: 7px;
+        padding:30px;
+    }
+    .controls .row select{
+        border:none;
+        outline: none;
+        font-size: 15px;
+        background: none;
+    }
+}
