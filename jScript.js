@@ -1,75 +1,48 @@
-const fromText = document.querySelector('.from-text'),
-    toText = document.querySelector('.to-text');
-const selectTag = document.querySelectorAll('select'),
-    exchangeIcon = document.querySelector('.exchange'),
-    icons = document.querySelectorAll('.row i'),
-translatebtn = document.querySelector('button');
-//console.log(selectTag);
+const fromText = document.querySelector('.from-text');
+const toText = document.querySelector('.to-text');
+const selectTag = document.querySelectorAll('select');
+const exchangeIcon = document.querySelector('.exchange');
+const icons = document.querySelectorAll('.row i');
+const translatebtn = document.querySelector('button');
 
-selectTag.forEach(function (tag, id) {
-    for (const country_code in countries) {
-        //console.log(countries[country_code]);
-        let selected;
-        if (id == 0 && country_code == "en-GB") {
-            selected = "selected";
-        } else if (id == 1 && country_code == "yo-NG") {
-            selected = "selected";
-        }
-        let option = `<option value="${country_code}" ${selected}>${countries[country_code]}</option>`;
-        tag.insertAdjacentHTML("beforeend", option);
-    }
+// Loop over select tags to populate with options
+selectTag.forEach((tag, id) => {
+  for (const country_code in countries) {
+    const selected = (id === 0 && country_code === "en-GB") || (id === 1 && country_code === "yo-NG") ? "selected" : "";
+    const option = `<option value="${country_code}" ${selected}>${countries[country_code]}</option>`;
+    tag.insertAdjacentHTML("beforeend", option);
+  }
 });
 
 //Exchanging select value and textarea value
-exchangeIcon.addEventListener('click', function () {
-    let tempText = fromText.value,
-        tempLang = selectTag[0].value;
-
-    fromText.value = toText.value;
-    selectTag[0].value = selectTag[1].value;
-
-    toText.value = tempText;
-    selectTag[1].value = tempLang;
+exchangeIcon.addEventListener('click', () => {
+  [fromText.value, toText.value] = [toText.value, fromText.value];
+  [selectTag[0].value, selectTag[1].value] = [selectTag[1].value, selectTag[0].value];
 });
 
-translatebtn.addEventListener("click", function () {
-    let text = fromText.value,
-        translateFrom = selectTag[0].value, //getting fromSelect tag value
-        translateTo = selectTag[1].value;//getting toSelect tag value
-        if(!text) return;
-        toText.setAttribute("placeholder", "Translating...");
-    let apiUrl =`https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
-    //fetch api response and returning it with parsing into js obj
-    // and in another then method rceiving the obj
-    fetch(apiUrl).then(res => res.json()).then(data => {
-       // console.log(data);
-        toText.value = data.responseData.translatedText;
-        toText.setAttribute("placeholder", "Translating...");
-    });
-    //console.log(text, translateFrom,translateTo );
+// Translate button click handler
+translatebtn.addEventListener("click", () => {
+  const text = fromText.value.trim();
+  const translateFrom = selectTag[0].value;
+  const translateTo = selectTag[1].value;
+  if (!text) return;
+  toText.setAttribute("placeholder", "Translating...");
+  const apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+  fetch(apiUrl).then(res => res.json()).then(data => {
+    toText.value = data.responseData.translatedText;
+    toText.setAttribute("placeholder", "");
+  });
 });
-icons.forEach(function(icon){
-    icon.addEventListener('click', function ({ target }) {
-        //console.log(target)
-        if(target.classList.contains("fa-copy")){
-            if(target.id == 'from'){
-                //console.log('From copy icon clicked')
-                navigator.clipboard.writeText(fromText.value);
-            }else{
-               // console.log('To copy icon clicked');
-                navigator.clipboard.writeText(toText.value);
-            }
-        }else{
-           // console.log('speech icon clicked')
-           let utterance;
-           if(target.id == 'from'){
-            utterance = new SpeechSynthesisUtterance(fromText.value);
-            utterance.lang = selectTag[0].value; //setting utterance language to from select tag value
-        }else{
-            utterance = new SpeechSynthesisUtterance(toText.value);
-            utterance.lang = selectTag[1].value; //setting utterance language to to select tag value
-        }
-        speechSynthesis.speak(utterance); //speak the passed utterance
-        }
-        });
-})
+
+// Loop over icons to add click handlers
+icons.forEach(icon => {
+  icon.addEventListener('click', ({ target }) => {
+    if (target.classList.contains("fa-copy")) {
+      navigator.clipboard.writeText(target.id === 'from' ? fromText.value : toText.value);
+    } else {
+      const utterance = new SpeechSynthesisUtterance(target.id === 'from' ? fromText.value : toText.value);
+      utterance.lang = selectTag[target.id === 'from' ? 0 : 1].value;
+      speechSynthesis.speak(utterance);
+    }
+  });
+});
