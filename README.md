@@ -2,7 +2,7 @@
 
 A modern, responsive web application that provides real-time translation across multiple languages, powered by the MyMemory Translation API.
 
-![Language Translator App Screenshot](https://asset.cloudinary.com/dvd8hlffl/c79ade9f0ae352a5b105eb03c2b2c402)
+![Language Translator App Screenshot]([https://asset.cloudinary.com/dvd8hlffl/c79ade9f0ae352a5b105eb03c2b2c402](https://res.cloudinary.com/dvd8hlffl/image/upload/v1744301297/my%20portfolio/language%20translator.png))
 
 ## Features
 
