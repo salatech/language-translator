@@ -216,7 +216,7 @@ const Home: React.FC = () => {
       <header className={`w-full ${darkMode ? "bg-gray-800" : "bg-white"} shadow-md`}>
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex justify-between items-center mb-4">
-            <h1 className={`text-2xl font-bold ${darkMode ? "text-white" : "text-indigo-700"}`}>Translator</h1>
+            <h1 className={`text-2xl font-bold ${darkMode ? "text-white" : "text-[#034592]"}`}>Translator</h1>
             <div className="flex items-center space-x-3">
               <div className="flex items-center">
                 <span className="mr-2 text-sm font-medium">Streak: {streakCount} day{streakCount !== 1 ? "s" : ""}</span>
@@ -234,19 +234,19 @@ const Home: React.FC = () => {
           <div className="flex border-b">
             <button
               onClick={() => setActiveTab("translate")}
-              className={`py-2 px-4 font-medium transition-colors ${activeTab === "translate" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-indigo-600 text-indigo-600") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
+              className={`py-2 px-4 font-medium transition-colors ${activeTab === "translate" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-[#034592] text-[#034592]") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
             >
               Translate
             </button>
             <button
               onClick={() => setActiveTab("phrasebook")}
-              className={`py-2 px-4 font-medium transition-colors ${activeTab === "phrasebook" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-indigo-600 text-indigo-600") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
+              className={`py-2 px-4 font-medium transition-colors ${activeTab === "phrasebook" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-[#034592] text-[#034592]") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
             >
               Phrasebook
             </button>
             <button
               onClick={() => setActiveTab("favorites")}
-              className={`py-2 px-4 font-medium transition-colors ${activeTab === "favorites" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-indigo-600 text-indigo-600") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
+              className={`py-2 px-4 font-medium transition-colors ${activeTab === "favorites" ? (darkMode ? "border-b-2 border-indigo-400 text-indigo-400" : "border-b-2 border-[#034592] text-[#034592]") : (darkMode ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-700")}`}
             >
               Favorites
             </button>
@@ -262,7 +262,7 @@ const Home: React.FC = () => {
               <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={() => setShowTips(false)} aria-label="Close tip">
                 ×
               </button>
-              <h3 className={`text-sm font-medium mb-1 ${darkMode ? "text-blue-300" : "text-blue-700"}`}>Translation Tip of the Day:</h3>
+              <h3 className={`text-sm font-medium mb-1 ${darkMode ? "text-blue-300" : "text-[#034592]"}`}>Translation Tip of the Day:</h3>
               <p className="text-sm">{getTranslationTip()}</p>
             </div>
           )}
@@ -283,7 +283,7 @@ const Home: React.FC = () => {
                   </select>
                 </div>
                 <button onClick={handleExchange} className={`p-2 rounded-full ${darkMode ? "bg-gray-700 hover:bg-gray-600" : "bg-indigo-100 hover:bg-indigo-200"} transition-colors`} aria-label="Exchange languages">
-                  <ArrowLeftRight size={20} className={darkMode ? "text-indigo-400" : "text-indigo-700"} />
+                  <ArrowLeftRight size={20} className={darkMode ? "text-indigo-400" : "text-[#034592]"} />
                 </button>
                 <div className="w-2/5">
                   <select
@@ -308,7 +308,7 @@ const Home: React.FC = () => {
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
-                    file:bg-indigo-50 file:text-indigo-700
+                    file:bg-indigo-50 file:text-[#034592]
                     hover:file:bg-indigo-100"
                 />
               </div>
@@ -388,7 +388,7 @@ const Home: React.FC = () => {
                 <button
                   onClick={addToFavorites}
                   disabled={!fromText || !toText}
-                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-indigo-700" : "bg-indigo-100 text-indigo-700 hover:bg-indigo-200")}`}
+                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-[#034592]" : "bg-indigo-100 text-[#034592] hover:bg-indigo-200")}`}
                 >
                   <BookmarkPlus size={18} className="mr-2" />
                   <span>Save</span>
@@ -396,7 +396,7 @@ const Home: React.FC = () => {
                 <button
                   onClick={handleShare}
                   disabled={!fromText || !toText}
-                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-indigo-700" : "bg-indigo-100 text-indigo-700 hover:bg-indigo-200")}`}
+                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-[#034592]" : "bg-indigo-100 text-[#034592] hover:bg-indigo-200")}`}
                 >
                   <Share2 size={18} className="mr-2" />
                   <span>Share</span>
@@ -404,7 +404,7 @@ const Home: React.FC = () => {
                 <button
                   onClick={handleDownload}
                   disabled={!fromText || !toText}
-                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-indigo-700" : "bg-indigo-100 text-indigo-700 hover:bg-indigo-200")}`}
+                  className={`p-2 rounded-lg flex items-center justify-center ${!fromText || !toText ? (darkMode ? "bg-gray-700 text-gray-500" : "bg-gray-200 text-gray-400") : (darkMode ? "bg-indigo-800 text-white hover:bg-[#034592]" : "bg-indigo-100 text-[#034592] hover:bg-indigo-200")}`}
                 >
                   <Download size={18} className="mr-2" />
                   <span>Download</span>
@@ -447,7 +447,7 @@ const Home: React.FC = () => {
               <button
                 onClick={handleTranslate}
                 disabled={isTranslating || !fromText.trim()}
-                className={`w-full mt-6 p-3 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${darkMode ? "focus:ring-indigo-400" : "focus:ring-indigo-500"} font-medium flex items-center justify-center ${isTranslating || !fromText.trim() ? (darkMode ? "bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-gray-300 text-gray-500 cursor-not-allowed") : (darkMode ? "bg-indigo-600 text-white hover:bg-indigo-500" : "bg-indigo-600 text-white hover:bg-indigo-700")}`}
+                className={`w-full mt-6 p-3 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${darkMode ? "focus:ring-indigo-400" : "focus:ring-indigo-500"} font-medium flex items-center justify-center ${isTranslating || !fromText.trim() ? (darkMode ? "bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-gray-300 text-gray-500 cursor-not-allowed") : (darkMode ? "bg-[#034592] text-white hover:bg-indigo-500" : "bg-[#034592] text-white hover:bg-[#034592]")}`}
               >
                 {isTranslating ? (
                   <>
@@ -469,7 +469,7 @@ const Home: React.FC = () => {
               <div className="space-y-6">
                 {phrasebookCategories.map((category) => (
                   <div key={category.id} className="space-y-2">
-                    <h3 className={`text-lg font-medium ${darkMode ? "text-indigo-400" : "text-indigo-600"}`}>{category.name}</h3>
+                    <h3 className={`text-lg font-medium ${darkMode ? "text-indigo-400" : "text-[#034592]"}`}>{category.name}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {category.phrases.map((phrase, idx) => (
                         <div
